@@ -23,6 +23,7 @@ import { provideAnimationsAsync } from '@angular/platform-browser/animations/asy
 
 
 
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -53,4 +54,4 @@ import { provideAnimationsAsync } from '@angular/platform-browser/animations/asy
   ],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule {}
