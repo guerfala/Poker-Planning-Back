@@ -6,7 +6,6 @@ import { MatDialog, MatDialogConfig } from '@angular/material/dialog';
 import { ConfirmationComponent } from '../confirmation/confirmation.component';
 
 
-
 @Component({
   selector: 'app-votes-list',
   templateUrl: './votes-list.component.html',
@@ -14,7 +13,7 @@ import { ConfirmationComponent } from '../confirmation/confirmation.component';
 })
 export class VotesListComponent implements OnInit {
   dataSource: MatTableDataSource<Vote> = new MatTableDataSource<Vote>([]); // Data source for the table
-  displayedColumns: string[] = ['voteId', 'cardValue','voteTimestamp','confidenceLevel', 'delete']; // Displayed columns
+  displayedColumns: string[] = ['voteId', 'cardValue', 'voteTimestamp', 'confidenceLevel', 'userId', 'taskId', 'delete']; // Displayed columns
 
   constructor(private voteService: VoteService, private dialog: MatDialog) { }
 
@@ -24,6 +23,7 @@ export class VotesListComponent implements OnInit {
 
   getVotes(): void {
     this.voteService.getAllVotes().subscribe(votes => {
+      console.log('Votes:', votes); // Log the votes array
       this.dataSource = new MatTableDataSource<Vote>(votes); // Set up data source
     });
   }

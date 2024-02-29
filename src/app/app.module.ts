@@ -21,6 +21,8 @@ import { MatDialogModule } from '@angular/material/dialog';
 // import { TableRoomComponent } from './table-room/table-room.component';
 import { VotesListComponent } from './vote/votes-list/votes-list.component';
 import { ConfirmationComponent } from './vote/confirmation/confirmation.component';
+import { BlankComponent } from './blank/blank.component';
+import { AddVoteComponent } from './vote/add-vote/add-vote.component';
 // import { VotebackComponent } from './backoffice/voteback/voteback.component';
 // import { FooterBackComponent } from './backoffice/components/footer/footerback.component';
 // import { NavbarComponent } from './backoffice/components/navbar/navbar.component';
@@ -37,6 +39,8 @@ import { ConfirmationComponent } from './vote/confirmation/confirmation.componen
     // TableRoomComponent,
     VotesListComponent,
     ConfirmationComponent,
+    BlankComponent,
+    AddVoteComponent,
     // VotebackComponent,
     // FooterBackComponent,
     // NavbarComponent,
