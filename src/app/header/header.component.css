@@ -1,0 +1,14 @@
+.header-nav .nav-item.login-link {
+    margin-left: 20px; /* Adjust margin as needed */
+}
+
+.header-nav .nav-item.login-link a {
+    color: #ffffff; /* Change color as needed */
+    text-decoration: none;
+    font-weight: bold;
+    transition: color 0.3s ease;
+}
+
+.header-nav .nav-item.login-link a:hover {
+    color: #cccccc; /* Change hover color as needed */
+}

@@ -1,1 +1,10 @@
-<router-outlet></router-outlet>
+
+<app-header (toggleSidebarEvent)="toggleSidebar()"></app-header>
+
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-md-2" [ngClass]="{ 'd-none': !isSidebarVisible }">
+      <app-sidebar></app-sidebar>
+    </div>
+    <div class="col-md-10">
+      <router-outlet></router-outlet>

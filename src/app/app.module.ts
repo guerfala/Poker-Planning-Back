@@ -2,7 +2,6 @@ import { NgModule } from '@angular/core';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule, ReactiveFormsModule  } from '@angular/forms';
 import { BrowserModule, provideClientHydration } from '@angular/platform-browser';
-
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { MatTableModule } from '@angular/material/table';
@@ -18,6 +17,14 @@ import { UserDetailsComponent } from './User/user-details/user-details.component
 import { LoginComponent } from './User/login/login.component';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
+import { HeaderComponent } from './header/header.component';
+import { ProfileComponent } from './profile/profile.component';
+import { SidebarComponent } from './sidebar/sidebar.component';
+import { FooterComponent } from './footer/footer.component';
+import { BodyComponent } from './body/body.component';
+import { AdduserComponent } from './User/adduser/adduser.component';
+import { UpdateUserComponent } from './User/update-user/update-user.component';
+
 
 
 
@@ -29,6 +36,13 @@ import { provideAnimationsAsync } from '@angular/platform-browser/animations/asy
     AppComponent,
     UserDetailsComponent,
     LoginComponent,
+    HeaderComponent,
+    ProfileComponent,
+    SidebarComponent,
+    FooterComponent,
+    BodyComponent,
+    AdduserComponent,
+    UpdateUserComponent
   ],
   imports: [
     BrowserModule,

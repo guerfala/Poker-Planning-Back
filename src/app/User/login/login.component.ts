@@ -1,10 +1,46 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { UserService } from '../Services/user.service';
+import { AuthenticationService } from '../Services/authentication.service';
+import { Router } from '@angular/router';
+import { NgForm } from '@angular/forms';
+
+
 
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
   styleUrl: './login.component.css'
 })
-export class LoginComponent {
 
+
+
+
+export class LoginComponent implements OnInit {
+[x: string]: any;
+  constructor(private userService: UserService , private userAuthService:AuthenticationService , private router : Router) {}
+
+  email: string = '';
+  password: string = '';
+  
+  ngOnInit(): void {
+   
+  }
+
+  login( loginForm:NgForm)
+  { this.userService.login(loginForm.value).subscribe(
+    (Response:any) => {
+      const token = Response.token;
+      const userData = Response.user;
+
+      this.userAuthService.setTokenAndUser(token,userData);
+      this.router.navigate(['/userDetails']);
+   
+      
+    },
+    (error) => {
+      console.log(error);
+    }
+    );
+  }
 }
+
