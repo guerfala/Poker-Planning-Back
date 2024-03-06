@@ -1,0 +1,19 @@
+
+<div class="col-md-6 offset-md-3" style="margin-top: 100px;">
+    <h3> Create pack </h3>
+    <form (ngSubmit)=  "onSubmit()">
+
+        <div class="form-group">
+            <label> value</label>
+            <input type="number" class ="form-control" id = "value"
+                   [(ngModel)] = "card.value" name = "value">
+        </div>
+
+
+
+
+
+        <button class = "btn btn-success" type ="submit">Submit</button>
+
+    </form>
+</div>

@@ -1,0 +1,35 @@
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<table class = "table table-striped" style="margin-left: 310px">
+  <thead>
+  <tr>
+    <th> packId</th>
+    <th> nbCards </th>
+    <th> packDescription</th>
+    <th> packName </th>
+    <th> Actions </th>
+
+  </tr>
+  </thead>
+  <tbody>
+  <tr *ngFor = "let pack of packs" >
+    <td> {{ pack.packId }} </td>
+    <td> {{ pack.nbCards }} </td>
+    <td> {{ pack.packDescription }} </td>
+    <td> {{ pack.packName }} </td>
+    <td>  <img src="./assets/img/{{ pack.image }}" alt="Italian Trulli"> </td>
+
+    <td>
+      <button (click) = "onAddcard(pack.packId)" class = "btn btn-success" style="margin-left: 10px"> add card</button>
+      <button (click) = "onEdit(pack.packId)" class = "btn btn-success"> Update</button>
+      <button (click) = "onDelete(pack.packId)" class = "btn btn-success" style="margin-left: 10px"> Delete</button>
+    </td>
+  </tr>
+  </tbody>
+</table>
+
