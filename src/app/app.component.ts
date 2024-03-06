@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { AuthenticationService } from './User/Services/authentication.service';
 
 @Component({
   selector: 'app-root',
@@ -10,6 +11,7 @@ export class AppComponent {
   isDashboardVisible: boolean = false;
   isSidebarVisible: boolean = true;
 
+  constructor(public authService: AuthenticationService) {}
   toggleDashboard(): void {
     this.isDashboardVisible = !this.isDashboardVisible;
   }
