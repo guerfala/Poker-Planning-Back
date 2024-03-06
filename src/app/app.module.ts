@@ -24,6 +24,14 @@ import { FooterComponent } from './footer/footer.component';
 import { BodyComponent } from './body/body.component';
 import { AdduserComponent } from './User/adduser/adduser.component';
 import { UpdateUserComponent } from './User/update-user/update-user.component';
+import {EditPackComponent} from "./edit-pack/edit-pack.component";
+import {AddPackComponent} from "./add-pack/add-pack.component";
+import {PackComponent} from "./pack/pack.component";
+import {PaksListComponent} from "./paks-list/paks-list.component";
+import {CardListComponent} from "./card-list/card-list.component";
+import {AddCardComponent} from "./add-card/add-card.component";
+import {EditCardComponent} from "./edit-card/edit-card.component";
+import {CardsofpackComponent} from "./cardsofpack/cardsofpack.component";
 
 
 
@@ -42,7 +50,15 @@ import { UpdateUserComponent } from './User/update-user/update-user.component';
     FooterComponent,
     BodyComponent,
     AdduserComponent,
-    UpdateUserComponent
+    UpdateUserComponent,
+    EditPackComponent,
+    AddPackComponent,
+    PackComponent,
+    PaksListComponent,
+    CardListComponent,
+    AddCardComponent,
+    EditCardComponent,
+    CardsofpackComponent,
   ],
   imports: [
     BrowserModule,

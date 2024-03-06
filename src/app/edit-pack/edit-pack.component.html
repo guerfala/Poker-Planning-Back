@@ -1,0 +1,30 @@
+
+<app-header></app-header>
+<app-sidebar></app-sidebar>
+<div class="col-md-6 offset-md-3">
+  <h3> Update Employee </h3>
+  <form (ngSubmit) = "onSubmit()">
+
+    <div class="form-group">
+      <label> packName</label>
+      <input type="text" class ="form-control" id = "packName"
+             [(ngModel)] = "pack.packName" name = "packName">
+    </div>
+
+    <div class="form-group">
+      <label> packDescription</label>
+      <input type="text" class ="form-control" id = "packDescription"
+             [(ngModel)] = "pack.packDescription" name = "packDescription">
+    </div>
+
+    <div class="form-group">
+      <label> nbCards</label>
+      <input type="text" class ="form-control" id = "nbCards"
+             [(ngModel)] = "pack.nbCards" name = "nbCards">
+    </div>
+
+    <button class = "btn btn-success" type ="submit">Submit</button>
+
+  </form>
+</div>
+<app-footer></app-footer>
