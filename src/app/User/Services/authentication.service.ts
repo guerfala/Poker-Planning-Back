@@ -17,6 +17,12 @@ export class AuthenticationService {
     return userData ? JSON.parse(userData) : null;
   }
 
+  isAdmin(): boolean {
+     const userData = this.getUserData();
+     return userData && userData.role === "Admin";
+  }
+
+
   public  getToken(): string { 
     return localStorage.getItem('jwtToken') || '';
   }

@@ -16,11 +16,12 @@ import { NgForm } from '@angular/forms';
 
 
 export class LoginComponent implements OnInit {
-[x: string]: any;
+
   constructor(private userService: UserService , private userAuthService:AuthenticationService , private router : Router) {}
 
   email: string = '';
   password: string = '';
+  warningMessage: string = '';
   
   ngOnInit(): void {
    
@@ -39,6 +40,7 @@ export class LoginComponent implements OnInit {
     },
     (error) => {
       console.log(error);
+      this.warningMessage = 'Invalid credentials. Please try again.';
     }
     );
   }

@@ -15,7 +15,7 @@ export class UserDetailsComponent {
   userList!: User[];
   users!: User[];
   dataSource:any;
-  displayedColumns = ['userId','firstName','lastName','email','password','image','gender','role','skillRate','Actions'];
+  displayedColumns = ['userId','firstName','lastName','email','gender','role','skillRate','Actions'];
 
   constructor(private userService: UserService, private router: Router){
     this.userService.getUserList()

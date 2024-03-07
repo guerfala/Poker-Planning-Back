@@ -42,7 +42,7 @@ console.log(this.user);
 }
 
 userlist() {
-  this.router.navigate(['/usersDetails'])
+  this.router.navigate(['/userDetails'])
 }
 }
 
