@@ -1,0 +1,23 @@
+<main>
+    <section class="about">
+        <div class="col-md-6 offset-md-3">
+            <h1>Create team</h1>
+            <form (ngSubmit)="onSubmit()" #teamForm="ngForm">
+                <div class="form-group">
+                    <label>Team Name</label>
+                    <input type="text" class="form-control" id="teamName"
+                        [(ngModel)]="team.teamName" name="teamName" required>
+                </div>
+
+                <div class="form-group">
+                    <label>Evaluation</label>
+                    <input type="number" class="form-control" id="Evaluation"
+                        [(ngModel)]="team.evaluation" name="Evaluation" required>
+                </div>
+
+                <br>
+                <button class="btn btn-success" type="submit" [disabled]="!teamForm.valid">Save</button>
+            </form>
+        </div>
+    </section>
+</main>

@@ -1,0 +1,46 @@
+
+<div style="text-align: center; margin-top: 20px;">
+    <h2> Our Teams</h2>
+    <div style="display: flex; flex-direction: column; align-items: center;">
+        <div>
+            <input type="text" placeholder="Search by Team Name" [(ngModel)]="searchTerm" (keyup)="searchTeams()" class="form-control search-input">
+        </div>
+        <div style="margin-top: 10px;">
+            <button routerLink="/create-team" class="btn btn-success">Add new Team</button>
+        </div>
+    </div>
+</div>
+
+
+<div style="margin-top: 50px ; margin-left: 300px;"> <!-- Ajout de marge pour le menu -->
+    <div style="margin: auto; width: 80%;"> 
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th> Team Id</th>
+                    <th> Team Name </th>
+                    <th> Evaluation</th>
+                    <th> Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let team of teams">
+                    <td> {{ team.teamId }} </td>
+                    <td> {{ team.teamName }} </td>
+                    <td>
+                        <app-star-rating [rating]="team.evaluation"></app-star-rating>
+                      </td>
+                    <td>
+                        <button (click)="updateTeam(team.teamId)" class="btn btn-info"> Update</button>
+                        <button (click)="deleteTeam(team.teamId)" class="btn btn-danger" style="margin-left: 10px"> Delete</button>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+
+<div style="text-align: center; margin-top: 20px;">
+    <button (click)="goToPreviousPage()" class="btn btn-primary" [disabled]="currentPage === 1">Page précedente</button>
+    <button (click)="goToNextPage()" class="btn btn-primary" style="margin-left: 100px">Page suivante</button>
+</div>
