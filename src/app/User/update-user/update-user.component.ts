@@ -54,7 +54,7 @@ export class UpdateUserComponent {
 
   
   userlist() {
-    this.router.navigate(['/usersDetails'])
+    this.router.navigate(['/userDetails'])
   }
 
 }
