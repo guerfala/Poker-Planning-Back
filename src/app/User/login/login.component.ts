@@ -34,6 +34,8 @@ export class LoginComponent implements OnInit {
       const userData = Response.user;
 
       this.userAuthService.setTokenAndUser(token,userData);
+      
+
       this.router.navigate(['/userDetails']);
    
       

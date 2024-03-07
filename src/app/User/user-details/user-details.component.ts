@@ -3,6 +3,7 @@ import { User } from '../Model/user';
 import { UserService } from '../Services/user.service';
 import { Router } from '@angular/router';
 import { MatTableDataSource } from '@angular/material/table';
+import { AuthenticationService } from '../Services/authentication.service';
 
 
 
@@ -17,7 +18,7 @@ export class UserDetailsComponent {
   dataSource:any;
   displayedColumns = ['userId','firstName','lastName','email','gender','role','skillRate','Actions'];
 
-  constructor(private userService: UserService, private router: Router){
+  constructor(private userService: UserService, private router: Router ,  private authserv : AuthenticationService){
     this.userService.getUserList()
     .subscribe(res => {
       this.userList = res;
@@ -47,6 +48,8 @@ deleteUser(id: number) {
   this.userService.DeleteProfil(id).subscribe(() => {
     // Refresh the user list after deletion
     this.getUsers();
+    this.authserv.clear();
+   
     // Navigate after user is deleted and list is refreshed
     window.location.reload();
   });
