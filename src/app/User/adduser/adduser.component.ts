@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { UserService } from '../Services/user.service';
 import { User } from '../Model/user';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-adduser',
@@ -13,7 +14,7 @@ export class AdduserComponent {
   user: User = new User();
   imageFile: File | null = null;
 
-  constructor(private userService: UserService) {}
+  constructor(private userService: UserService , private router : Router) {}
 
   onSubmit() {
     const formData = new FormData();
@@ -26,7 +27,7 @@ export class AdduserComponent {
     formData.append('role', this.user.role);
     formData.append('skillRate', this.user.skillRate.toString());
     if (this.imageFile) {
-      formData.append('file', this.imageFile, this.imageFile.name); // Use 'file' as the field name
+      formData.append('file', this.imageFile, this.imageFile.name); 
     }
 
     this.userService.addUser(formData).subscribe(
@@ -39,6 +40,7 @@ export class AdduserComponent {
         // Handle error response
       }
     );
+    this.router.navigate(['/userDetails']);
   }
 
   onFileSelected(event: any) {
@@ -47,4 +49,11 @@ export class AdduserComponent {
       this.imageFile = files[0];
     }
   }
+  userlist() {
+    this.router.navigate(['/userDetails'])
+  }
 }
+
+
+ 
+
