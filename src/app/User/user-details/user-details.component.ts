@@ -48,12 +48,21 @@ deleteUser(id: number) {
   this.userService.DeleteProfil(id).subscribe(() => {
     // Refresh the user list after deletion
     this.getUsers();
-    this.authserv.clear();
-   
-    // Navigate after user is deleted and list is refreshed
-    window.location.reload();
+    
+    // Check if the deleted user is the logged-in user
+    const userData = JSON.parse(localStorage.getItem('userData') || '{}');
+    if (userData && userData.userId === id) {
+      // Clear local storage and perform logout
+      this.authserv.clear();
+      // Redirect to the login page or perform any other logout actions
+      // Example: this.router.navigate(['/login']);
+    } else {
+      // Redirect to the user details page after deleting the user
+      this.router.navigate(['/userDetails']);
+    }
   });
 }
+
 
   editUser(id: number) {
     this.router.navigate(['/updateUser', id]);

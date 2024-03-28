@@ -13,6 +13,7 @@ export class AdduserComponent {
 
   user: User = new User();
   imageFile: File | null = null;
+  users!: User[];
 
   constructor(private userService: UserService , private router : Router) {}
 
@@ -29,19 +30,27 @@ export class AdduserComponent {
     if (this.imageFile) {
       formData.append('file', this.imageFile, this.imageFile.name); 
     }
-
+  
     this.userService.addUser(formData).subscribe(
       response => {
         console.log('User added successfully:', response);
         // Handle success response
+        // Redirect to the user details page
+        this.router.navigate(['/userDetails']);
       },
       error => {
         console.error('Error adding user:', error);
         // Handle error response
       }
     );
-    this.router.navigate(['/userDetails']);
   }
+  
+  getUsers() {
+    this.userService.getUserList().subscribe(data => {
+      this.users = data;
+    });
+  }
+  
 
   onFileSelected(event: any) {
     const files: FileList = event.target.files;
@@ -51,6 +60,8 @@ export class AdduserComponent {
   }
   userlist() {
     this.router.navigate(['/userDetails'])
+    
+
   }
 }
 
