@@ -52,6 +52,10 @@
                 <span *ngIf="userForm.controls['skillRate'].errors?.['max']">Skill Rate cannot be more than 100.</span>
             </div>
         </label>
+        <!-- Add input for image upload -->
+        <label>
+            <input type="file" name="file" (change)="onFileSelected($event)" accept="image/*" class="input">
+        </label>
         <button type="submit" class="submit">Submit</button>
    
     </form>

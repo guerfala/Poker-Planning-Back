@@ -14,16 +14,28 @@ export class UserService {
   );
   constructor(private httpclient: HttpClient) { }
 
-  public addUser(user:User) : Observable<object>
-  {
-     return this.httpclient.post(this.PathOfApi + "/api/auth/register" , user , { headers: this.requestHeader } )
+  public addUser(user: FormData) : Observable<object> {
+    return this.httpclient.post(this.PathOfApi + "/api/auth/register", user ,  { headers: this.requestHeader });
   }
+  public UpdateUser(userId: number, user: User, file: File | null): Observable<object> {
+    const formData: FormData = new FormData();
   
-  public UpdateUser(userId:number, user:User):  Observable<object> {
-     
-    return this.httpclient.put(this.PathOfApi + `/api/auth/UpdateUser/${userId}`,user , { headers: this.requestHeader } );
+    // Append user properties individually
+  
+    formData.append('firstName', user.firstName);
+    formData.append('lastName', user.lastName);
+    formData.append('email', user.email);
+    formData.append('password', user.password);
+    formData.append('gender', user.gender);
+    formData.append('role', user.role);
+    formData.append('skillRate', user.skillRate.toString());
+  
+    if (file) {
+      formData.append('file', file, file.name);
+    }
+  
+    return this.httpclient.put(this.PathOfApi + `/api/auth/UpdateUser/${userId}`, formData, { headers: this.requestHeader });
   }
-  
   
   
     public  login(loginData: any) {
